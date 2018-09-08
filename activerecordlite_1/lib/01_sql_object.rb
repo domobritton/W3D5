@@ -1,5 +1,6 @@
 require_relative 'db_connection'
 require 'active_support/inflector'
+
 # NB: the attr_accessor we wrote in phase 0 is NOT used in the rest
 # of this project. It was only a warm up.
 
@@ -69,6 +70,7 @@ class SQLObject
   end
 
   def initialize(params = {})
+    p params
     params.each do |attribute_name, value|
       attr_name = attribute_name.to_sym
       if self.class.columns.include?(attr_name)
